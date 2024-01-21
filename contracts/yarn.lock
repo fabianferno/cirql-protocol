@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@aave/core-v3@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.npmjs.org/@aave/core-v3/-/core-v3-1.18.0.tgz#00b2e4bebf2f12ba8c0a21b6663bb82c63d00f9a"
+  integrity sha512-vWJdJ+Ci9LEgalm0CzKpUmYh35jD0MKYK1AftrIRoiBKCDRNXL8VpQ+60ByMWwIbCy9P81Z4G5oHy6lRduERNQ==
+
 "@babel/code-frame@^7.0.0":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.16.7.tgz#44416b6bd7624b998f5b1af5d470856c40138789"
@@ -22,6 +27,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
+
+"@bgd-labs/aave-address-book@^2.17.0":
+  version "2.17.0"
+  resolved "https://registry.npmjs.org/@bgd-labs/aave-address-book/-/aave-address-book-2.17.0.tgz#06f5e8950135d00039220a0a6f44055e520924e2"
+  integrity sha512-JhKGyaCm6Qg+0jtX3UiNNi7c8+vYqFp8gbAsgMnxMZhDOEoNo4gPtiEq9M9rFl1PwjSEdMyzoRcP/nquFPC52g==
 
 "@cspotcode/source-map-consumer@0.8.0":
   version "0.8.0"

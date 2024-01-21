@@ -1,4 +1,4 @@
-# CirqlProtocol Contracts
+# Cirql Protocol Contracts
 <!-- GETTING STARTED -->
 
 ### Getting Started    

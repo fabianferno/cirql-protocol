@@ -38,6 +38,8 @@
     "ci:clean": "rm -rf ./artifacts ./cache .;types"
   },
   "dependencies": {
+    "@aave/core-v3": "^1.18.0",
+    "@bgd-labs/aave-address-book": "^2.17.0",
     "scripty.sol": "^2.0.0",
     "solady": "^0.0.153"
   }

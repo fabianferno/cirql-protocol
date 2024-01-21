@@ -23,6 +23,9 @@ const config: HardhatUserConfig = {
       allowUnlimitedContractSize: true,
       gas: 2100000,
       gasPrice: 8000000000,
+      forking: {
+        url: process.env.SEPOLIA_RPC_URL || "",
+      },
     },
     localhost: {
       chainId: 31337,
