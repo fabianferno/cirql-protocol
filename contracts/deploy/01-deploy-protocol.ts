@@ -13,23 +13,14 @@ const deployProtocol: DeployFunction = async function (hre: HardhatRuntimeEnviro
   log("----------------------------------------------------")
   log("Deploying Protocol and waiting for confirmations...")
 
-  // Deploy Cirql Token
-  const CirqlToken = await deploy("CirqlToken", {
-    from: deployer,
-    args: [],
-    log: true,
-    // we need to wait if on a live network so we can verify properly
-    waitConfirmations: networkConfig[network.name]?.blockConfirmations || 1,
-  })
-  log(`CirqlToken at ${CirqlToken.address}`)
-
   // GHO token contract
   let GHO_Token = "0xc4bF5CbDaBE595361438F8c6a187bDc330539c60"
-  // let daiToken = "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357"
+  let daiToken = "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357"
   let pool = AaveV3Sepolia.POOL // 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951
+  let ghoDebtToken = "0xd4FEA5bD40cE7d0f7b269678541fF0a95FCb4b68"
   const Contract = await deploy("CirqlProtocol", {
     from: deployer,
-    args: [CirqlToken.address, pool, GHO_Token],
+    args: [daiToken, pool, ghoDebtToken],
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name]?.blockConfirmations || 1,
@@ -44,9 +35,9 @@ const deployProtocol: DeployFunction = async function (hre: HardhatRuntimeEnviro
 
     await verify(Contract.address, network.name, [
       // args
-      CirqlToken.address,
+      daiToken,
       pool,
-      GHO_Token,
+      ghoDebtToken,
     ])
   }
 }
