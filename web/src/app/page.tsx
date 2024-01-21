@@ -15,8 +15,10 @@ export default function Home() {
 
       <section className="mt-5">
         {account ? (
-          <div>
-            <p className="text-sm mt-2">Your address: {account.address}</p>
+          <div className="flex-col items-center justify-between">
+            <p className="text-sm mt-2 center ml-20 pl-10">
+              Your address: {account.address}
+            </p>
             <Actions />
           </div>
         ) : (

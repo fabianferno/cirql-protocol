@@ -1,3 +1,4 @@
+`use client`;
 import {
   CirqlContractAddress,
   CirqlContractABI,
@@ -6,10 +7,20 @@ import {
   PoolAddress,
   PoolABI,
 } from "@/utils/constants";
-import { useContractWrite, useAccount } from "wagmi";
+import { useContractWrite, useAccount, useContractRead } from "wagmi";
 
 export default function Actions() {
   const account = useAccount();
+
+  // Allowance
+  const { data: allowance }: any = useContractRead({
+    address: DAI_address,
+    abi: ERC20ABI,
+    functionName: "allowance",
+    args: [account.address, CirqlContractAddress],
+    watch: true,
+  });
+
   const {
     write: approve,
     isLoading: approveLoading,
@@ -20,7 +31,7 @@ export default function Actions() {
     abi: ERC20ABI,
     functionName: "approve",
     args: [
-      account.address,
+      CirqlContractAddress,
       // A very large number
       11579208923731619542357098500868,
     ],
@@ -37,7 +48,7 @@ export default function Actions() {
     functionName: "_deposit",
     args: [
       // Amt of assets
-      100,
+      10,
     ],
   });
 
@@ -68,15 +79,15 @@ export default function Actions() {
   return (
     <div className="flex justify-between mt-2">
       <button
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl"
+        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl mx-2"
         onClick={() => {
           approveLoading ? () => {} : approve();
         }}
       >
-        Approve
+        Approve DAI ({allowance ? parseInt(allowance) : 0})
       </button>
       <button
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl"
+        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl mx-2"
         onClick={
           depositLoading
             ? () => {}
@@ -88,7 +99,7 @@ export default function Actions() {
         Deposit (100 DAI)
       </button>
       <button
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl"
+        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl mx-2"
         onClick={
           lendLoading
             ? () => {}
@@ -100,7 +111,7 @@ export default function Actions() {
         Lend to Vitalik (10 DAI)
       </button>
       <button
-        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl"
+        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl mx-2"
         onClick={
           borrowLoading
             ? () => {}
