@@ -39,20 +39,10 @@ const config: HardhatUserConfig = {
       url: "https://polygon-mumbai-bor.publicnode.com	",
       accounts: [process.env.PRIVATE_KEY || ""],
     },
-    base: {
-      allowUnlimitedContractSize: true,
-      // chainId: 8453,
-      gas: "auto",
-      gasPrice: 1000000000,
-      url: "https://mainnet.base.org",
-      accounts: [process.env.PRIVATE_KEY || ""],
-    },
-    baseGoerli: {
-      chainId: 84531,
-      allowUnlimitedContractSize: true,
+    sepolia: {
       gas: 2100000,
-      gasPrice: 8000000000,
-      url: "https://goerli.base.org",
+      gasPrice: 21103171753,
+      url: process.env.SEPOLIA_RPC_URL || "",
       accounts: [process.env.PRIVATE_KEY || ""],
     },
   },

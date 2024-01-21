@@ -15,7 +15,7 @@ export const networkConfig: networkConfigInfo = {
   },
 }
 
-export const developmentChains = ["hardhat", "localhost"]
+export const developmentChains = ["hardhat", "localhost", "sepolia"]
 export const proposalsFile = "proposals.json"
 
 // Governor Values

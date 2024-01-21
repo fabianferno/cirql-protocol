@@ -28,34 +28,6 @@ const deployProtocol: DeployFunction = async function (hre: HardhatRuntimeEnviro
   })
   log(`Contract at ${Contract.address}`)
 
-  // Fund deployer wallet with DAI by sending DAI from the whale
-  //  impersonating the whale
-  let DAI_WHALE = "0x9Dc7990136EB33339522b57260E07090EB540232"
-
-  await network.provider.request({
-    method: "hardhat_impersonateAccount",
-    params: [DAI_WHALE],
-  })
-
-  // Send gas to whale
-  await hre.network.provider.send("hardhat_setBalance", [DAI_WHALE, "0x100000000000000000000"])
-
-  const signer = await ethers.getSigner(DAI_WHALE)
-  let DAI = await ethers.getContractAt("IERC20", daiToken)
-
-  // Send 100 DAI to deployer
-  const recieptTx = await signer.sendTransaction({
-    to: DAI.address,
-    value: 0,
-    data: DAI.interface.encodeFunctionData("transfer", [deployer, parseEther("1000")]),
-  })
-
-  await recieptTx.wait()
-
-  console.log(`Sent 1000 DAI to ${deployer}`)
-
-  console.log(`Transaction successful with hash: ${recieptTx.hash}`)
-
   // Verifications
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
     // Wait for 5 block confirmations
