@@ -20,7 +20,7 @@ const deployProtocol: DeployFunction = async function (hre: HardhatRuntimeEnviro
   let ghoDebtToken = "0xd4FEA5bD40cE7d0f7b269678541fF0a95FCb4b68"
   const Contract = await deploy("CirqlProtocol", {
     from: deployer,
-    args: [daiToken, pool, ghoDebtToken],
+    args: [daiToken, "CirqlToken", "CQL", pool, ghoDebtToken],
     log: true,
     // we need to wait if on a live network so we can verify properly
     waitConfirmations: networkConfig[network.name]?.blockConfirmations || 1,
@@ -36,6 +36,8 @@ const deployProtocol: DeployFunction = async function (hre: HardhatRuntimeEnviro
     await verify(Contract.address, network.name, [
       // args
       daiToken,
+      "CirqlToken",
+      "CQL",
       pool,
       ghoDebtToken,
     ])
