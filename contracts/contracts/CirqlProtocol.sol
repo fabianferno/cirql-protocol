@@ -8,17 +8,15 @@ import {IPool} from "@aave/core-v3/contracts/interfaces/IPool.sol";
 import {ICreditDelegationToken} from "@aave/core-v3/contracts/interfaces/ICreditDelegationToken.sol";
 
 contract CirqlProtocol is ERC4626, Ownable {
-  // Any ERC20 token: DAI, USDC, AAVE, etc.
-  IERC20 public immutable asset;
-  // GHO token
-  IERC20 public immutable ghoToken;
+  mapping(address => uint256) public shareHolders;
+
   // GHO Debt Token
   ICreditDelegationToken public immutable ghoDebtToken;
   // Aave V3 pool
   IPool public immutable pool;
 
   constructor(
-    address _asset,
+    ERC20 _asset,
     string memory _name,
     string memory _symbol,
     address _pool,
@@ -65,7 +63,7 @@ contract CirqlProtocol is ERC4626, Ownable {
     return shareHolders[_user];
   }
 
-  function _decimalsOffset() internal pure override returns (uint8) {
+  function _decimalsOffset() internal pure returns (uint8) {
     return 3;
   }
 

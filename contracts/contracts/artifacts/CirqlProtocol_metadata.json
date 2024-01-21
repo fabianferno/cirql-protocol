@@ -1,0 +1,196 @@
+{
+	"compiler": {
+		"version": "0.8.23+commit.f704f362"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_asset",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_pool",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ghoToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "asset",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ghoToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pool",
+				"outputs": [
+					{
+						"internalType": "contract IPool",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shares",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/CirqlProtocol.sol": "CirqlProtocol"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@aave/core-v3/contracts/interfaces/IPool.sol": {
+			"keccak256": "0xbfd2077251c8dc766a56d45f4b03eb07f3441323e79c0f794efea3657a99747f",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://c6ff6221de0ea877932c73c0b99d3e4535f293053ae44f9f9d6b9d265e9af2f6",
+				"dweb:/ipfs/QmSTaEKrhz1xNVnx4oBzWw8DenYPShVzJoP1A9GTEWkAzX"
+			]
+		},
+		"@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol": {
+			"keccak256": "0x33d4308d9407b4ee2297fc4ba5acce1a96a6c658189e2778a4f6b90e032fb3b5",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://978336a2a40229ccc7749344be890862ea12e17e9fffe5bb977ba3841de07b5a",
+				"dweb:/ipfs/QmScNrQfDSPg1afJmkCty6fZkETUrWTmEXWeTmHoe7mSqa"
+			]
+		},
+		"@aave/core-v3/contracts/protocol/libraries/types/DataTypes.sol": {
+			"keccak256": "0xff95adc41b2bbda0c08208e66c1e2fd0d99fa6d8f937667c2b366ddf08f10eeb",
+			"license": "BUSL-1.1",
+			"urls": [
+				"bzz-raw://734ac1a253d41ace0fe411359248a1534e530b85b3c0c9fe37931ee11580dbc6",
+				"dweb:/ipfs/QmNSm1bqFo2x8EghUyShK34bU1esDeLCw1ZWPoRZwcoVvM"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"contracts/CirqlProtocol.sol": {
+			"keccak256": "0xb2b1be1f6ca5506e2316ec5d865438f4865fdc115dd32500b34de18b757f5dc8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://31bbe303e30fc0be00f5722b48845dcb62074987e91bc8cbdd470132635739cb",
+				"dweb:/ipfs/QmWoRWWLi9LQgPBK6kYsc473khTV3KhRUvnfZjQxZvXafr"
+			]
+		}
+	},
+	"version": 1
+}
